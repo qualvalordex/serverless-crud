@@ -2,7 +2,7 @@ module.exports.OK = (body) => {
     return {
         statusCode: 200,
         body: JSON.stringify({
-            body
+            ...body
         })
     }
 }

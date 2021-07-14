@@ -88,12 +88,7 @@ async function remove(event) {
     catch (error) {
         console.error(error)
         
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: error
-            })
-        }
+        return httpResponse.serverError(error)
     }
 }
 
