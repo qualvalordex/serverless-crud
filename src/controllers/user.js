@@ -41,10 +41,12 @@ async function find(event) {
 }
 
 async function findAll(event) {
+    const result = await User.findAll()
+
     return {
         statusCode: 200,
         body: JSON.stringify({
-            message: "Ver todos os usuários..."
+            data: result
         })
     }
 }
