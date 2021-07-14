@@ -1,16 +1,6 @@
 version: '3'
 
 services:
-    serverless-api:
-        build:
-            context: ./docker/serverless
-        volumes:
-            - ./:/home/serverless
-        ports:
-            - "3000:3000"
-        links:
-            - "database:database"
-    
     database:
         image: mysql
         restart: always
@@ -22,3 +12,13 @@ services:
             - "3306:3306"
         expose:
             - "3306"
+            
+    serverless-api:
+        build:
+            context: ./docker/serverless
+        volumes:
+            - ./:/home/serverless
+        ports:
+            - "3000:3000"
+        links:
+            - "database:database"

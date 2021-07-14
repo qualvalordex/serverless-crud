@@ -1,8 +1,9 @@
 FROM node:14-alpine
 
-RUN npm install -g serverless
-
 WORKDIR /home/serverless
+
+RUN npm install -g serverless
+RUN npm install -g sequelize-cli
 
 EXPOSE 3000
 
