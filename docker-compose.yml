@@ -8,3 +8,13 @@ services:
             - ./:/home/serverless
         ports:
             - "3000:3000"
+    
+    database:
+        image: mysql
+        restart: always
+        environment: 
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_TCP_PORT: ${MYSQL_TCP_PORT}
+        ports:
+            - "3306:3306"
