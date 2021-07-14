@@ -30,13 +30,12 @@ async function create(event) {
 async function find(event) {
     const userId = event.pathParameters.userId
 
-    const result = await User.findByPk(1)
-    console.log(result)
+    const result = await User.findByPk(userId)
 
     return {
         statusCode: 200,
         body: JSON.stringify({
-            user: result
+            data: result
         })
     }
 }
