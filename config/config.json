@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "root",
+    "password": "password",
+    "database": "my-database",
+    "host": "serverless-crud-api_database_1",
+    "dialect": "mysql"
+  }
+}
