@@ -30,54 +30,105 @@ async function create(event) {
 async function find(event) {
     const userId = event.pathParameters.userId
 
-    const result = await User.findByPk(userId)
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            data: result
-        })
+    try {
+        const result = await User.findByPk(userId)
+        
+        return {
+            statusCode: 200,
+            body: JSON.stringify({
+                data: result
+            })
+        }
     }
+    catch (error) {
+        console.error(error)
+        
+        return {
+            statusCode: 500,
+            body: JSON.stringify({
+                error: error
+            })
+        }
+    }
+
 }
 
 async function findAll(event) {
-    const result = await User.findAll()
+    
+    try {
+        const result = await User.findAll()
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            data: result
-        })
+        return {
+            statusCode: 200,
+            body: JSON.stringify({
+                data: result
+            })
+        }
+    }
+    catch (error) {
+        console.error(error)
+        
+        return {
+            statusCode: 500,
+            body: JSON.stringify({
+                error: error
+            })
+        }
     }
 }
 
 async function update(event) {
     const { id:userId, ...params } = JSON.parse(event.body)
 
-    const result = await User.update(params, {
-        where: { id: userId }
-    })
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            message: "User updated successful."
+    
+    try {
+        const result = await User.update(params, {
+            where: { id: userId }
         })
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({
+                message: "User updated successful."
+            })
+        }
+    }
+    catch (error) {
+        console.error(error)
+        
+        return {
+            statusCode: 500,
+            body: JSON.stringify({
+                error: error
+            })
+        }
     }
 }
 
 async function remove(event) {
     const userId = event.pathParameters.userId
 
-    const result = await User.destroy({
-        where: { id: userId }
-    })
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            message: "User removed successful."
+    try {
+        const result = await User.destroy({
+            where: { id: userId }
         })
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({
+                message: "User removed successful."
+            })
+        }
+    }
+    catch (error) {
+        console.error(error)
+        
+        return {
+            statusCode: 500,
+            body: JSON.stringify({
+                error: error
+            })
+        }
     }
 }
 
