@@ -52,10 +52,16 @@ async function findAll(event) {
 }
 
 async function update(event) {
+    const { id:userId, ...params } = JSON.parse(event.body)
+
+    const result = await User.update(params, {
+        where: { id: userId }
+    })
+
     return {
         statusCode: 200,
         body: JSON.stringify({
-            message: "Atualizar um usuário..."
+            message: "User updated successful."
         })
     }
 }
