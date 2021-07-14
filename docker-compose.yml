@@ -15,9 +15,9 @@ services:
         image: mysql
         restart: always
         environment: 
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_TCP_PORT: ${MYSQL_TCP_PORT}
+            MYSQL_DATABASE: 'my-database'
+            MYSQL_ROOT_PASSWORD: 'password'
+            MYSQL_TCP_PORT: 3306
         ports:
             - "3306:3306"
         expose:
