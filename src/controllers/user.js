@@ -1,3 +1,4 @@
+const httpResponse = require('../../common/httpResponses')
 const db = require('../../models')
 const User = db.User
 
@@ -8,22 +9,14 @@ async function create(event) {
     try {
         const result = await User.create(params)
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                message: 'User created successful.'
-            })
-        }
+        return httpResponse.OK({
+            message: 'User created successful.'
+        })
     }
     catch (error) {
         console.error(error)
         
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: error
-            })
-        }
+        return httpResponse.serverError(error)
     }
 }
 
@@ -33,47 +26,30 @@ async function find(event) {
     try {
         const result = await User.findByPk(userId)
         
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                data: result
-            })
-        }
+        return httpResponse.OK({
+            data: result
+        })
     }
     catch (error) {
         console.error(error)
         
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: error
-            })
-        }
+        return httpResponse.serverError(error)
     }
 
 }
 
-async function findAll(event) {
-    
+async function findAll(event) {   
     try {
         const result = await User.findAll()
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                data: result
-            })
-        }
+        return httpResponse.OK({
+            data: result
+        })
     }
     catch (error) {
         console.error(error)
         
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: error
-            })
-        }
+        return httpResponse.serverError(error)
     }
 }
 
@@ -86,22 +62,14 @@ async function update(event) {
             where: { id: userId }
         })
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                message: "User updated successful."
-            })
-        }
+        return httpResponse.OK({
+            message: 'User updated successful.'
+        })
     }
     catch (error) {
         console.error(error)
         
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: error
-            })
-        }
+        return httpResponse.serverError(error)
     }
 }
 
@@ -113,12 +81,9 @@ async function remove(event) {
             where: { id: userId }
         })
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({
-                message: "User removed successful."
-            })
-        }
+        return httpResponse.OK({
+            message: 'User removed successful.'
+        })
     }
     catch (error) {
         console.error(error)
