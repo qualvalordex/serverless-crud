@@ -67,10 +67,16 @@ async function update(event) {
 }
 
 async function remove(event) {
+    const userId = event.pathParameters.userId
+
+    const result = await User.destroy({
+        where: { id: userId }
+    })
+
     return {
         statusCode: 200,
         body: JSON.stringify({
-            message: "Deletar um usuário..."
+            message: "User removed successful."
         })
     }
 }
