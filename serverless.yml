@@ -1,0 +1,5 @@
+service: my-crud-api
+provider: ${file(./config/serverless/provider.yml)}
+functions: ${file(./src/functions.yml)}
+plugins: ${file(./config/serverless/plugins.yml)}
+custom: ${file(./config/serverless/custom.yml)}

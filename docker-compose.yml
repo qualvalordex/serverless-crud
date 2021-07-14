@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    serverless-api:
+        build:
+            context: ./docker/serverless
+        volumes:
+            - ./:/home/serverless
+        ports:
+            - "3000:3000"

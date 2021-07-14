@@ -1,0 +1,11 @@
+name: aws
+runtime: nodejs14.x
+stage: ${opt:stage, 'loc'}
+region: sa-east-1
+stackName: my-crud-stack
+apiName: my-crud-api
+memorySize: 128
+timeout: 10
+deploymentBucket:
+  name: my-crud-api-bucket
+deploymentPrefix: sls
