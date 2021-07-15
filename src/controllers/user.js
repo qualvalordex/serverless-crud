@@ -15,11 +15,15 @@ async function create(event) {
         })
     }
     catch (error) {
-        console.error(error.message)
-
         if (error.name === 'SequelizeValidationError') {
             return httpResponse.badRequest({
                 error: error.message
+            })
+        }
+
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            return httpResponse.conflict({
+                error: 'This is already an user using this e-mail address.'
             })
         }
         

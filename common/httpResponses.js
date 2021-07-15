@@ -16,6 +16,15 @@ module.exports.badRequest = (body) => {
     }
 }
 
+module.exports.conflict = (body) => {
+    return {
+        statusCode: 409,
+        body: JSON.stringify({
+            ...body
+        })
+    }
+}
+
 module.exports.serverError = (body) => {
     return {
         statusCode: 500,
