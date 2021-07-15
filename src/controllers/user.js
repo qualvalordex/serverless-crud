@@ -15,9 +15,17 @@ async function create(event) {
         })
     }
     catch (error) {
-        console.error(error)
+        console.error(error.message)
+
+        if (error.name === 'SequelizeValidationError') {
+            return httpResponse.badRequest({
+                error: error.message
+            })
+        }
         
-        return httpResponse.serverError(error)
+        return httpResponse.serverError({
+            error: error.message
+        })
     }
 }
 
