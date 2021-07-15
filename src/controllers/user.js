@@ -4,6 +4,7 @@ const User = db.User
 
 async function create(event) {
     const params = JSON.parse(event.body)
+    console.log('Request\'s payload:')
     console.log(params)
 
     try {
