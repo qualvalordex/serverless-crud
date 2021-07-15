@@ -1,5 +1,5 @@
 const httpResponse = require('../../common/httpResponses')
-const db = require('../../models')
+const db = require('../models')
 const User = db.User
 
 async function create(event) {
