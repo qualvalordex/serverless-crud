@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-offline": "npx sequelize-cli db:migrate && sls offline --stage loc"
   },
   "author": "",
   "license": "ISC",
