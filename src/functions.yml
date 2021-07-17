@@ -1,34 +1,34 @@
 createUser:
-  handler: src/controllers/user.create
-  events:
-    - http:
-        path: users
-        method: post
+    handler: src/controllers/user.create
+    events:
+        - http:
+              path: users
+              method: post
 
 findUser:
-  handler: src/controllers/user.find
-  events:
-    - http:
-        path: users/{userId}
-        method: get
+    handler: src/controllers/user.find
+    events:
+        - http:
+              path: users/{userId}
+              method: get
 
 findAllUsers:
-  handler: src/controllers/user.findAll
-  events:
-    - http:
-        path: users
-        method: get
+    handler: src/controllers/user.findAll
+    events:
+        - http:
+              path: users
+              method: get
 
 updateUser:
-  handler: src/controllers/user.update
-  events:
-    - http:
-        path: users
-        method: patch
+    handler: src/controllers/user.update
+    events:
+        - http:
+              path: users
+              method: patch
 
 removeUser:
-  handler: src/controllers/user.remove
-  events:
-    - http:
-        path: users/{userId}
-        method: delete
+    handler: src/controllers/user.remove
+    events:
+        - http:
+              path: users/{userId}
+              method: delete

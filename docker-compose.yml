@@ -4,21 +4,21 @@ services:
     database:
         image: mysql
         restart: always
-        environment: 
+        environment:
             MYSQL_DATABASE: 'my-database'
             MYSQL_ROOT_PASSWORD: 'password'
             MYSQL_TCP_PORT: 3306
         ports:
-            - "3306:3306"
+            - '3306:3306'
         expose:
-            - "3306"
-            
+            - '3306'
+
     serverless-api:
         build:
             context: ./docker/serverless
         volumes:
             - ./:/home/serverless
         ports:
-            - "3000:3000"
+            - '3000:3000'
         links:
-            - "database:database"
+            - 'database:database'
