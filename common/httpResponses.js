@@ -25,6 +25,15 @@ module.exports.conflict = (body) => {
     }
 }
 
+module.exports.unprocessableEntity = (body) => {
+    return {
+        statusCode: 422,
+        body: JSON.stringify({
+            ...body
+        })
+    }
+}
+
 module.exports.serverError = (body) => {
     return {
         statusCode: 500,

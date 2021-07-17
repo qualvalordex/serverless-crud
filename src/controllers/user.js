@@ -21,7 +21,7 @@ async function create(event) {
         }
 
         if (error.name === 'SequelizeUniqueConstraintError') {
-            return httpResponse.conflict({
+            return httpResponse.unprocessableEntity({
                 error: 'This is already an user using this e-mail address.'
             })
         }
