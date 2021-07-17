@@ -16,6 +16,15 @@ module.exports.badRequest = (body) => {
     }
 }
 
+module.exports.notFound = (body) => {
+    return {
+        statusCode: 404,
+        body: JSON.stringify({
+            ...body
+        })
+    }
+}
+
 module.exports.conflict = (body) => {
     return {
         statusCode: 409,
