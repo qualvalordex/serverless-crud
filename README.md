@@ -76,3 +76,151 @@ Duplicated e-mail 422:
     "error": "This is already an user using this e-mail address."
 }
 ```
+
+### GET /users/{userId}
+
+> Returns user information.
+
+#### Request path parameters:
+
+```json
+{
+    "userId": integer
+}
+```
+
+#### Responses:
+
+Success 200:
+
+```json
+{
+    "data": {
+        "first_name": string,
+        "last_name": string,
+        "age": integer,
+        "email": string
+    }
+}
+```
+
+Not Found 404:
+
+```json
+{
+    "message": "User not found."
+}
+```
+
+### GET /users
+
+> Return all users.
+
+#### Responses
+
+Success 200:
+
+```json
+{
+    "data": [
+        {
+            "first_name": string,
+            "last_name": string,
+            "age": integer,
+            "email": string
+        },
+        {
+            "first_name": string,
+            "last_name": string,
+            "age": integer,
+            "email": string
+        },
+        {
+            "first_name": string,
+            "last_name": string,
+            "age": integer,
+            "email": string
+        }
+    ]
+}
+```
+
+Not Found 404:
+
+```json
+{
+    "message": "Anything found here."
+}
+```
+
+### PATCH /users
+
+> Update user's data.
+
+#### Request body:
+
+```json
+{
+    "id": integer,
+    "first_name": string,
+    "last_name": string,
+    "age": integer,
+    "email": string
+}
+```
+
+PS: only id is required.
+
+#### Responses:
+
+Success 200:
+
+```json
+{
+    "message": "User update successful."
+}
+```
+
+Validation error 400:
+
+```json
+{
+    "error": error
+}
+```
+
+Not Found 404:
+
+```json
+{
+    "message": "User not found."
+}
+```
+
+### DELETE /users/{userId}
+
+> Delete an user.
+
+#### Request path parameters:
+
+```json
+{
+    "userId": integer
+}
+```
+
+Success 200:
+
+```json
+{
+    "message": "User deleted successful."
+}
+```
+
+Not Found 404:
+
+```json
+{
+    "message": "User not found."
+}
+```
