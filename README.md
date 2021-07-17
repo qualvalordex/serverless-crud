@@ -2,11 +2,11 @@
 
 > This project is configured to run localy.
 
-### Dependencies
+## Dependencies
 
 You need to have Docker and docker-compose to run this project.
 
-### Run this project localy
+## Run this project localy
 
 Clone this repository to your machine, navigate to its root folder and then type
 
@@ -34,9 +34,11 @@ $ npm run start-offline
 
 to start your service. Now you're ready to do HTTP requests.
 
-### Routes
+## Routes
 
-> `POST /users` - Creates a new user.
+### POST /users
+
+> Creates a new user.
 
 #### Request body:
 
@@ -51,10 +53,26 @@ to start your service. Now you're ready to do HTTP requests.
 
 #### Responses:
 
-`If create successfuly`
+Success 200:
 
 ```json
 {
     "message": "User created successful."
+}
+```
+
+Validation error 400:
+
+```json
+{
+    "error": error
+}
+```
+
+Duplicated e-mail 422:
+
+```json
+{
+    "error": "This is already an user using this e-mail address."
 }
 ```
